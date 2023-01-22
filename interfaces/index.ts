@@ -5,3 +5,7 @@ export interface Act {
     name: string;
     isActive: string;
 }
+
+export interface SearchFormProps {
+    acts: Act[];
+}

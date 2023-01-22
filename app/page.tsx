@@ -1,9 +1,16 @@
-import React from 'react'
+import { Act } from "../interfaces"
+import fetchValContent from "../lib/fetchValContent"
+import SearchForm from "./SearchForm"
 
-const page = () => {
-  return (
-    <div className='text-white'>page</div>
-  )
+const Homepage = async () => {
+    const acts: Act[] = await fetchValContent()
+    console.log("hi")
+    console.log(acts)
+    return (
+        <main className='text-white'>
+            <SearchForm acts={acts} />
+        </main>
+    )
 }
 
-export default page
+export default Homepage
