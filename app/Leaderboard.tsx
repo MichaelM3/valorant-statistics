@@ -1,12 +1,18 @@
 'use client'
 
-import { LeaderboardProps } from "../interfaces"
+import { LeaderboardProps, Player } from "../interfaces"
+import PlayerCard from "./PlayerCard"
 
 const Leaderboard = ({ currentAct, playerArr }: LeaderboardProps) => {
-    console.log(playerArr)
+
+    const displayPlayerCard = playerArr.map((player: Player) => {
+        return <PlayerCard key={player.puuid} {...player} />
+    })
 
     return (
-        <div>Leaderboard</div>
+        <div>
+           {displayPlayerCard} 
+        </div>
     )
 }
 
