@@ -2,9 +2,8 @@
 
 import { LeaderboardProps } from "../interfaces"
 
-const Leaderboard = ({ currentAct }: LeaderboardProps) => {
-
-    console.log(currentAct)
+const Leaderboard = ({ currentAct, playerArr }: LeaderboardProps) => {
+    console.log(playerArr)
 
     return (
         <div>Leaderboard</div>
