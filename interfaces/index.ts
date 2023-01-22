@@ -3,9 +3,9 @@ export interface Act {
     parentId: string;
     type: string;
     name: string;
-    isActive: string;
+    isActive: boolean;
 }
 
-export interface SearchFormProps {
-    acts: Act[];
+export interface LeaderboardProps {
+    currentAct: Act;
 }

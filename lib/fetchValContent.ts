@@ -1,7 +1,7 @@
 import { Act } from "../interfaces"
 
 
-const fetchValContent = async (): Promise<Act[]> => {
+export const fetchValContent = async (): Promise<Act[]> => {
     const url = "https://na.api.riotgames.com/val/content/v1/contents?locale=en-US&api_key=" + process.env.API_KEY
     
     const res = await fetch(url)
@@ -13,4 +13,6 @@ const fetchValContent = async (): Promise<Act[]> => {
     return acts as Act[]
 }
 
-export default fetchValContent
+// export const fetchLeaderboardData = async (): Promise<void> => {
+//
+// }
