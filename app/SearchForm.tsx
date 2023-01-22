@@ -1,14 +1,19 @@
 'use client'
-import { Act, SearchFormProps } from "../interfaces"
+import { useState } from "react"
+import { SearchFormProps } from "../interfaces"
 
 const SearchForm = ({ acts }: SearchFormProps) => {
-    console.log(acts)
+    const [userInput, setUserInput] = useState<string>("")
     return (
         <div>
-        SearchForm
-            {/* {acts.map((act: Act) => (
-                <span key={act.id}>{act.name}</span>
-            ))} */}
+            <input
+                type="text"
+                placeholder="Enter username here..."
+                onChange={(e) => setUserInput(e.target.value)}
+            />
+            <button className="">
+                Search
+            </button>
         </div>
     )
 }
