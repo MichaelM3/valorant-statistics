@@ -13,7 +13,7 @@ const PlayerCard = ({
     return (
         <div className="flex justify-between my-0.5 bg-sky-900">
             <div className="flex items-center">
-                <span className="flex items-center space-x-4 px-8">
+                <span className="flex p-4 items-center space-x-4 px-8 bg-gray-700">
                     <h2>{leaderboardRank}</h2>
                     <Image
                         src="https://playvalorant.com/assets/images/leaderboards/radiant-badge.png"
