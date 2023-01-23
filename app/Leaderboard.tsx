@@ -11,8 +11,8 @@ const Leaderboard = ({ currentAct, playerArr }: LeaderboardProps) => {
     })
 
     return (
-        <div className="flex flex-col items-center border">
-            <div className="flex justify-between items-center w-full bg-slate-400 h-[100px]">
+        <div>
+            <div className="flex justify-between items-center w-full bg-slate-400 h-[100px] mb-8">
                 <span className="border-r p-4 h-full">
                     <Image
                         src="https://playvalorant.com/assets/images/leaderboards/radiant-badge.png"
@@ -31,8 +31,14 @@ const Leaderboard = ({ currentAct, playerArr }: LeaderboardProps) => {
                     <h3 className="text-l font-bold">ACT 1</h3>
                 </span>
             </div>
-            <div className="flex flex-col w-full">
-                {displayPlayerCard}
+            <span className="flex">
+                <h4 className="ml-4 font-semibold text-slate-400">RANK</h4>
+                <h4 className="ml-12 font-semibold text-slate-400">RATING</h4>
+            </span>
+            <div className="flex flex-col items-center bg-slate-600">
+                <div className="flex flex-col w-full">
+                    {displayPlayerCard}
+                </div>
             </div>
         </div>
     )
