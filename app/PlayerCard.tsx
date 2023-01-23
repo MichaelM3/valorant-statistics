@@ -1,4 +1,5 @@
 import { Player } from "../interfaces"
+import Image from "next/image"
 
 const PlayerCard = ({
     puuid,
@@ -12,14 +13,20 @@ const PlayerCard = ({
     return (
         <div className="flex justify-between my-0.5 bg-sky-900">
             <div className="flex items-center">
-                <span className="px-8">
+                <span className="flex items-center space-x-4 px-8">
                     <h2>{leaderboardRank}</h2>
+                    <Image
+                        src="https://playvalorant.com/assets/images/leaderboards/radiant-badge.png"
+                        alt="Radiant Badge"
+                        width={25}
+                        height={25}
+                    />
                 </span>
                 <span className="ml-12 text-center">
                     <p>{rankedRating}</p>
                 </span>
             </div>
-            <span  className="flex items-center">
+            <span className="flex items-center">
                 <h3>
                     {gameName}
                     <span>#{tagLine}</span>

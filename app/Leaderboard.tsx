@@ -17,7 +17,6 @@ const Leaderboard = ({ currentAct, players }: LeaderboardProps) => {
                     <Image
                         src="https://playvalorant.com/assets/images/leaderboards/radiant-badge.png"
                         alt="Radiant Badge"
-                        className=""
                         width={50}
                         height={50}
                     />
