@@ -13,15 +13,12 @@ export const fetchValContent = async (): Promise<Act[]> => {
     return acts as Act[]
 }
 
-export const fetchLeaderboardData = async (actId: string | undefined): Promise<Player[] | null> => {
-    if (actId) {
-        const res = await fetch(`${BASE_URL}ranked/v1/leaderboards/by-act/${actId}?size=200&startIndex=0&api_key=${process.env.API_KEY}`)
-        if (!res) {
-            throw new Error("Fetch request failed")
-        }
-        const { players } = await res.json()
-
-        return players as Player[]
+export const fetchLeaderboardData = async (actId: string): Promise<Player[]> => {
+    const res = await fetch(`${BASE_URL}ranked/v1/leaderboards/by-act/${actId}?size=200&startIndex=0&api_key=${process.env.API_KEY}`)
+    if (!res) {
+        throw new Error("Fetch request failed")
     }
-    return null
+    const { players } = await res.json()
+
+    return players as Player[]
 }

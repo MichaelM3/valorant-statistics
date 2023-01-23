@@ -3,21 +3,28 @@ import { fetchLeaderboardData, fetchValContent } from "../lib/fetchValContent"
 import Leaderboard from "./Leaderboard"
 
 const Homepage = async () => {
-    const acts: Act[] = await fetchValContent()
-    const currentAct = acts.find((act: Act) => (act.type === "act") && (act.isActive === true))
-    const playerArr: unknown = await fetchLeaderboardData(currentAct?.id)
+    const acts: unknown = await fetchValContent()
+    if (!isActs(acts)) {
+        return <div><h1>LEADERBOARD DATA IS DOWN</h1></div>
+    }
 
-    function isPlayerArr(players: unknown): players is Player[] {
-        if (players) {
-            return true
-        }
+    const currentAct: Act = acts.find((act: Act) => (act.type === "act") && (act.isActive === true)) as Act
+    const players: unknown = await fetchLeaderboardData(currentAct.id)
+
+    function isActs(acts: unknown): acts is Act[] {
+        if (acts) return true
+        return false
+    }
+
+    function isPlayers(players: unknown): players is Player[] {
+        if (players) return true
         return false
     }
 
     return (
         <main className='text-white p-12'>
-            {currentAct && isPlayerArr(playerArr) ?
-                <Leaderboard playerArr={playerArr} currentAct={currentAct} />
+            {isPlayers(players) ?
+                <Leaderboard players={players} currentAct={currentAct} />
                 :
                 null
             }

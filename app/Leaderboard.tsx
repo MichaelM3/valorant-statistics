@@ -4,9 +4,9 @@ import Image from "next/image"
 import { LeaderboardProps, Player } from "../interfaces"
 import PlayerCard from "./PlayerCard"
 
-const Leaderboard = ({ currentAct, playerArr }: LeaderboardProps) => {
+const Leaderboard = ({ currentAct, players }: LeaderboardProps) => {
 
-    const displayPlayerCard = playerArr.map((player: Player) => {
+    const displayPlayerCard = players.map((player: Player) => {
         return <PlayerCard key={player.puuid} {...player} />
     })
 

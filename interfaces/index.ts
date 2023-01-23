@@ -18,6 +18,6 @@ export interface Player {
 
 export interface LeaderboardProps {
     currentAct: Act;
-    playerArr: Player[];
+    players: Player[];
 }
 
