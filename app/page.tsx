@@ -15,7 +15,7 @@ const Homepage = async () => {
     }
 
     return (
-        <main className='text-white'>
+        <main className='text-white p-12'>
             {currentAct && isPlayerArr(playerArr) ?
                 <Leaderboard playerArr={playerArr} currentAct={currentAct} />
                 :

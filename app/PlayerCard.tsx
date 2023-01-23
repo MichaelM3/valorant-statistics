@@ -10,10 +10,21 @@ const PlayerCard = ({
     competitiveTier
 }: Player) => {
     return (
-        <div className="flex justify-around">
-            <h3>{gameName}</h3>
-            <span>{leaderboardRank}</span>
-            <span>{rankedRating}</span>
+        <div className="flex justify-between">
+            <div className="flex">
+                <span className="px-4">
+                    <h2>{leaderboardRank}</h2>
+                </span>
+                <span>
+                    <p>{rankedRating}</p>
+                </span>
+            </div>
+            <span>
+                <h3>
+                    {gameName}
+                    <span>#{tagLine}</span>
+                </h3>
+            </span>
         </div>
 
     )
