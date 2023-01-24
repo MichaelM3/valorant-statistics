@@ -1,12 +1,19 @@
 'use client'
 
+import { useState } from 'react'
 import Image from "next/image"
 import { LeaderboardProps, Player } from "../interfaces"
 import PlayerCard from "./PlayerCard"
+import { BiRightArrow } from "react-icons/bi"
 
 const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
+    const [currentPage, setCurrentPage] = useState<number>(1)
 
-    const displayPlayerCard = players.map((player: Player) => {
+    const startIndex = (currentPage - 1) * 9 // 10 players per page
+    const endIndex = startIndex + 9
+    const currentPlayers = players.slice(startIndex, endIndex)
+
+    const displayPlayerCard = currentPlayers.map((player: Player) => {
         return <PlayerCard
             key={player.puuid}
             gameName={player.gameName}
@@ -19,6 +26,7 @@ const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
 
     return (
         <div>
+            <BiRightArrow />
             <div className="flex justify-between items-center w-full bg-slate-400 h-[100px] mb-8">
                 <span className="border-r p-4 h-full">
                     <Image
