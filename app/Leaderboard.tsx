@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { MouseEvent, useState } from 'react'
 import Image from "next/image"
 import { LeaderboardProps, Player } from "../interfaces"
 import PlayerCard from "./PlayerCard"
-import { BiRightArrow } from "react-icons/bi"
+import { IoPlaySkipForwardSharp, IoPlaySkipBackSharp, IoPlaySharp } from "react-icons/io5"
 
 const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
     const [currentPage, setCurrentPage] = useState<number>(1)
@@ -24,9 +24,12 @@ const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
         />
     })
 
+    const handleClick = (counter: number) => {
+        setCurrentPage(currentPage + counter) 
+    }
+
     return (
         <div>
-            <BiRightArrow />
             <div className="flex justify-between items-center w-full bg-slate-400 h-[100px] mb-8">
                 <span className="border-r p-4 h-full">
                     <Image
@@ -43,6 +46,33 @@ const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
                 <span className="border-l p-6 text-center h-full">
                     <h5 className="text-sm font-medium">{episodeName}</h5>
                     <h3 className="text-l font-bold">{actName}</h3>
+                </span>
+            </div>
+            <div className='flex justify-end'>
+                <span
+                    className='bg-slate-900 w-14 h-14 flex justify-center items-center mr-2 transition-colors duration-200 ease-in-out hover:bg-red-400 hover:cursor-pointer'
+                    onClick={() => handleClick(-10)}
+                >
+                    <IoPlaySkipBackSharp size={35} />
+                </span>
+                <span
+                    className='bg-slate-900 w-14 h-14 flex justify-center items-center mr-2 transition-colors duration-200 ease-in-out hover:bg-red-400 hover:cursor-pointer'
+                    onClick={() => handleClick(-1)}
+                >
+                    <IoPlaySharp className='rotate-180' size={35} />
+                </span>
+                <span className="bg-slate-900 flex justify-center items-center w-80 h-14">{currentPage}/{Math.ceil(players.length/9)}</span>
+                <span
+                    className='bg-slate-900 w-14 h-14 flex justify-center items-center ml-2 transition-colors duration-200 ease-in-out hover:bg-red-400 hover:cursor-pointer'
+                    onClick={() => handleClick(1)}
+                >
+                    <IoPlaySharp size={35} />
+                </span>
+                <span
+                    className='bg-slate-900 w-14 h-14 flex justify-center items-center ml-2 transition-colors duration-200 ease-in-out hover:bg-red-400 hover:cursor-pointer'
+                    onClick={() => handleClick(10)}
+                >
+                    <IoPlaySkipForwardSharp size={35} />
                 </span>
             </div>
             <span className="flex">
