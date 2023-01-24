@@ -1,6 +1,6 @@
 import { Act, Player } from "../interfaces"
 import { fetchLeaderboardData, fetchValContent } from "../lib/fetchValContent"
-import Leaderboard from "./Leaderboard"
+import Leaderboard from "./leaderboard"
 
 const Homepage = async () => {
     const acts: unknown = await fetchValContent()

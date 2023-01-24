@@ -3,8 +3,8 @@
 import { MouseEvent, useState } from 'react'
 import Image from "next/image"
 import { LeaderboardProps, Player } from "../interfaces"
-import PlayerCard from "./PlayerCard"
-import { IoPlaySkipForwardSharp, IoPlaySkipBackSharp, IoPlaySharp } from "react-icons/io5"
+import PlayerCard from "./playerCard"
+import PaginationControls from './paginationControls'
 
 const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
     const [currentPage, setCurrentPage] = useState<number>(1)
@@ -48,33 +48,7 @@ const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
                     <h3 className="text-l font-bold">{actName}</h3>
                 </span>
             </div>
-            <div className='flex justify-end'>
-                <span
-                    className='bg-slate-900 w-14 h-14 flex justify-center items-center mr-2 transition-colors duration-200 ease-in-out hover:bg-red-400 hover:cursor-pointer'
-                    onClick={() => handleClick(-10)}
-                >
-                    <IoPlaySkipBackSharp size={35} />
-                </span>
-                <span
-                    className='bg-slate-900 w-14 h-14 flex justify-center items-center mr-2 transition-colors duration-200 ease-in-out hover:bg-red-400 hover:cursor-pointer'
-                    onClick={() => handleClick(-1)}
-                >
-                    <IoPlaySharp className='rotate-180' size={35} />
-                </span>
-                <span className="bg-slate-900 flex justify-center items-center w-80 h-14">{currentPage}/{Math.ceil(players.length/9)}</span>
-                <span
-                    className='bg-slate-900 w-14 h-14 flex justify-center items-center ml-2 transition-colors duration-200 ease-in-out hover:bg-red-400 hover:cursor-pointer'
-                    onClick={() => handleClick(1)}
-                >
-                    <IoPlaySharp size={35} />
-                </span>
-                <span
-                    className='bg-slate-900 w-14 h-14 flex justify-center items-center ml-2 transition-colors duration-200 ease-in-out hover:bg-red-400 hover:cursor-pointer'
-                    onClick={() => handleClick(10)}
-                >
-                    <IoPlaySkipForwardSharp size={35} />
-                </span>
-            </div>
+            <PaginationControls maxPlayers={players.length} currentPage={currentPage} handleClick={handleClick} />
             <span className="flex">
                 <h4 className="ml-4 font-semibold text-slate-400">RANK</h4>
                 <h4 className="ml-12 font-semibold text-slate-400">RATING</h4>

@@ -22,3 +22,8 @@ export interface LeaderboardProps {
     players: Player[];
 }
 
+export interface PaginationControlsProps {
+    handleClick: (counter: number) => void;
+    currentPage: number;
+    maxPlayers: number;
+}
