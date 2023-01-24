@@ -2,13 +2,11 @@ import { Player } from "../interfaces"
 import Image from "next/image"
 
 const PlayerCard = ({
-    puuid,
     gameName,
     tagLine,
     leaderboardRank,
     rankedRating,
     numberOfWins,
-    competitiveTier
 }: Player) => {
     return (
         <div className="flex justify-between my-0.5 bg-sky-900">

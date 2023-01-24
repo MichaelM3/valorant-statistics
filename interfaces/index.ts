@@ -7,17 +7,18 @@ export interface Act {
 }
 
 export interface Player {
-    puuid: string;
+    puuid?: string;
     gameName: string;
     tagLine: string;
     leaderboardRank: number;
     rankedRating: number;
     numberOfWins: number;
-    competitiveTier: number;
+    competitiveTier?: number;
 }
 
 export interface LeaderboardProps {
-    currentAct: Act;
+    actName: string;
+    episodeName: string;
     players: Player[];
 }
 

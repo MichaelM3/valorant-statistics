@@ -4,10 +4,17 @@ import Image from "next/image"
 import { LeaderboardProps, Player } from "../interfaces"
 import PlayerCard from "./PlayerCard"
 
-const Leaderboard = ({ currentAct, players }: LeaderboardProps) => {
+const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
 
     const displayPlayerCard = players.map((player: Player) => {
-        return <PlayerCard key={player.puuid} {...player} />
+        return <PlayerCard
+            key={player.puuid}
+            gameName={player.gameName}
+            tagLine={player.tagLine}
+            rankedRating={player.rankedRating}
+            leaderboardRank={player.leaderboardRank}
+            numberOfWins={player.numberOfWins}
+        />
     })
 
     return (
@@ -26,8 +33,8 @@ const Leaderboard = ({ currentAct, players }: LeaderboardProps) => {
                     <h1 className="text-2xl font-extrabold">RADIANT</h1>
                 </span>
                 <span className="border-l p-6 text-center h-full">
-                    <h5 className="text-sm font-medium">EPISODE 6</h5>
-                    <h3 className="text-l font-bold">ACT 1</h3>
+                    <h5 className="text-sm font-medium">{episodeName}</h5>
+                    <h3 className="text-l font-bold">{actName}</h3>
                 </span>
             </div>
             <span className="flex">

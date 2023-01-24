@@ -9,6 +9,7 @@ const Homepage = async () => {
     }
 
     const currentAct: Act = acts.find((act: Act) => (act.type === "act") && (act.isActive === true)) as Act
+    const currentEpisode: Act = acts.find((act: Act) => (act.type === "episode") && (act.isActive === true)) as Act
     const players: unknown = await fetchLeaderboardData(currentAct.id)
 
     function isActs(acts: unknown): acts is Act[] {
@@ -22,7 +23,7 @@ const Homepage = async () => {
     return (
         <main className='text-white p-12'>
             {isPlayers(players) ?
-                <Leaderboard players={players} currentAct={currentAct} />
+                <Leaderboard players={players} actName={currentAct.name} episodeName={currentEpisode.name} />
                 :
                 null
             }
