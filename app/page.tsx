@@ -12,12 +12,12 @@ const Homepage = async () => {
     const players: unknown = await fetchLeaderboardData(currentAct.id)
 
     function isActs(acts: unknown): acts is Act[] {
-        if (acts) return true
+        if (acts && typeof acts === "object") return true
         return false
     }
 
     function isPlayers(players: unknown): players is Player[] {
-        if (players) return true
+        if (players && typeof players === "object") return true
         return false
     }
 
