@@ -25,9 +25,9 @@ const PlayerCard = ({
                 </span>
             </div>
             <span className="flex items-center">
-                <h3>
+                <h3 className="text-2xl font-extrabold">
                     {gameName}
-                    <span>#{tagLine}</span>
+                    <span className="text-sm text-gray-400 font-bold">#{tagLine}</span>
                 </h3>
             </span>
             <span className="text-center p-2">

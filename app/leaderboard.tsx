@@ -25,7 +25,10 @@ const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
     })
 
     const handleClick = (counter: number) => {
-        setCurrentPage(currentPage + counter) 
+        const calculatedPage: number = currentPage + counter
+        if (calculatedPage > 0 && calculatedPage < Math.ceil(players.length / 9) + 1) {
+            setCurrentPage(currentPage + counter)
+        }
     }
 
     return (
