@@ -20,10 +20,11 @@ export interface LeaderboardProps {
     actName: string;
     episodeName: string;
     players: Player[];
+    lastPage: number;
 }
 
 export interface PaginationControlsProps {
     handleClick: (counter: number) => void;
     currentPage: number;
-    maxPlayers: number;
+    lastPage: number;
 }

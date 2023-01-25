@@ -23,7 +23,7 @@ const Homepage = async () => {
     return (
         <main className='text-white p-12'>
             {isPlayers(players) ?
-                <Leaderboard players={players} actName={currentAct.name} episodeName={currentEpisode.name} />
+                <Leaderboard lastPage={Math.ceil(players.length/9)} players={players} actName={currentAct.name} episodeName={currentEpisode.name} />
                 :
                 null
             }

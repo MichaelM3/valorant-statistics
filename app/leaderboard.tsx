@@ -6,7 +6,7 @@ import { LeaderboardProps, Player } from "../interfaces"
 import PlayerCard from "./playerCard"
 import PaginationControls from './paginationControls'
 
-const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
+const Leaderboard = ({ actName, episodeName, players, lastPage }: LeaderboardProps) => {
     const [currentPage, setCurrentPage] = useState<number>(1)
 
     const startIndex = (currentPage - 1) * 9 // 10 players per page
@@ -26,7 +26,7 @@ const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
 
     const handleClick = (counter: number) => {
         const calculatedPage: number = currentPage + counter
-        if (calculatedPage > 0 && calculatedPage < Math.ceil(players.length / 9) + 1) {
+        if (calculatedPage > 0 && calculatedPage < lastPage + 1) {
             setCurrentPage(currentPage + counter)
         }
     }
@@ -51,7 +51,7 @@ const Leaderboard = ({ actName, episodeName, players }: LeaderboardProps) => {
                     <h3 className="text-l font-bold">{actName}</h3>
                 </span>
             </div>
-            <PaginationControls maxPlayers={players.length} currentPage={currentPage} handleClick={handleClick} />
+            <PaginationControls lastPage={lastPage} currentPage={currentPage} handleClick={handleClick} />
             <span className="flex">
                 <h4 className="ml-4 font-semibold text-slate-400">RANK</h4>
                 <h4 className="ml-12 font-semibold text-slate-400">RATING</h4>
